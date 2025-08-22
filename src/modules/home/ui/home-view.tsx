@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button'
 import React, { useState } from 'react'
 import { authClient } from '@/db/auth-client'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 export const HomeView = () => {
   const { data: session } = authClient.useSession() 
