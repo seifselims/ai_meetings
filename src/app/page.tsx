@@ -3,8 +3,10 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import React, { useState } from 'react'
 import { authClient } from '@/db/auth-client'
+import { useRouter } from 'next/navigation'
 
 function Home() {
+  const router = useRouter()
   const { data: session } = authClient.useSession() 
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
@@ -34,6 +36,9 @@ function Home() {
         <Button onClick={() => authClient.signOut()}>Sign Out</Button>
       </div>
     )
+  }
+  else {
+    router.push('/sign-in')
   }
   return (
 <div className='flex flex-col items-center justify-center h-screen gap-4'>
