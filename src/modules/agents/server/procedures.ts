@@ -51,7 +51,7 @@ export const agentsRouter = createTRPCRouter({
         // await new Promise(resolve => setTimeout(resolve, 5000));
         // throw new TRPCError({ code: "BAD_REQUEST" }) // to test error state
     }),
-        getOne: protectedProcedure.input(z.object({id: z.string()})).query(async ({input}) => {
+        getOne: protectedProcedure.input(z.object({id: z.string()})).query(async ({input, ctx}) => {
         const [data] = await db
         // .select()
 
@@ -61,7 +61,16 @@ export const agentsRouter = createTRPCRouter({
             ...getTableColumns(agents),
         })
         .from(agents)
-        .where(eq(agents.id, input.id))
+        .where(
+            and(
+            eq(agents.id, input.id),
+            eq(agents.userId, ctx.auth.user.id)
+        )
+    )
+    if(!data) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "Agent not found" })
+        
+    }
         // timeout for 5 seconds
         // await new Promise(resolve => setTimeout(resolve, 5000));
         // throw new TRPCError({ code: "BAD_REQUEST" }) // to test error state
