@@ -15,7 +15,6 @@ import {
     FormMessage,
   } from "@/components/ui/form"
 import { GeneratedAvatar } from "@/components/generated-avatar"    
-import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
