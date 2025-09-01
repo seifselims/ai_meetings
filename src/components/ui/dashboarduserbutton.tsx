@@ -1,4 +1,4 @@
-import { authClient } from "@/db/auth-client"
+import { authClient } from "@/lib/auth-client"
 import { DropdownMenu,
     DropdownMenuContent, 
     DropdownMenuItem, 
