@@ -1,7 +1,6 @@
 import {and, eq, not} from "drizzle-orm"
 import {
     CallEndedEvent,
-    MessageNewEvent,
     CallTranscriptionReadyEvent,
     CallSessionParticipantLeftEvent,
     CallRecordingReadyEvent,

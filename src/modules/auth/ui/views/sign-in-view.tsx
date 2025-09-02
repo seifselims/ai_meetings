@@ -12,7 +12,6 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { authClient } from '@/lib/auth-client'
 import { useRouter } from 'next/navigation'
-import { on } from 'events'
 import {FaGithub, FaGoogle} from 'react-icons/fa'
 
 const formSchema = z.object({
@@ -140,7 +139,7 @@ export const SignInView = () => {
                     </Button>
                 </div>
                 <div className='text-center text-sm'>
-                    Don't have an account? {" "}
+                    Don&apos;t have an account? {" "}
                     <Link href='/sign-up' className='underline underline-offset-4'>
                         Sign Up
                     </Link>

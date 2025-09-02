@@ -9,7 +9,6 @@ import {
     CommandList,
     CommandResponsiveDialog
 } from "@/components/ui/command";
-import { set } from "date-fns";
 
 interface Props {
     options: Array<{
@@ -30,7 +29,6 @@ export const CommandSelect = ({
     onSearch,
     value,
     placeholder,
-    isSearchable,
     className,
 }: Props) => {
     const [open, setOpen] = useState(false)

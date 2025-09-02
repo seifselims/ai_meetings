@@ -1,6 +1,5 @@
 import { useTRPC } from "@/trpc/client"
 import { MeetingGetOne } from "../../types"
-import { useRouter } from "next/navigation"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -30,10 +29,8 @@ interface MeetingFormProps {
 
 export const MeetingForm = ({onSuccess, onCancel, initialValues}:MeetingFormProps) => {
    const trpc=useTRPC()
-   const router = useRouter()
    const queryClient = useQueryClient()
    const [openAgentDialog, setOpenAgentDialog] = useState(false)
-   const [open, setOpen] = useState(false)
    const [agentSearch, setAgentSearch] = useState("")
    const agents  = useQuery(trpc.agents.getMany.queryOptions({
     pageSize: 100,
@@ -138,7 +135,7 @@ export const MeetingForm = ({onSuccess, onCancel, initialValues}:MeetingFormProp
                     />
                 </FormControl>
                 <FormDescription>
-                    Not found what you're looking for?
+                    Not found what you&apos;re looking for?
                     <button
                     type="button"
                     className="text-primary hover:underline"

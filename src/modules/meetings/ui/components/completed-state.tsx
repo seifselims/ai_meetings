@@ -5,7 +5,7 @@ import {
     TabsList,
     TabsTrigger 
 } from '@/components/ui/tabs'
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import { 
     BookOpenTextIcon,
     SparklesIcon,
